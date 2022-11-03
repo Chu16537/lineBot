@@ -1,7 +1,11 @@
 package mongoDB
 
+// db
+const (
+	DB_NAME = "test"
+)
+
 // collectName
 const (
-	DB_NAME     = "test"
 	COL_MESSAGE = "message"
 )

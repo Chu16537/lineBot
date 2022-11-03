@@ -1,6 +1,8 @@
 package mongoDB
 
 import (
+	"linebot/conf"
+
 	"gopkg.in/mgo.v2"
 )
 
@@ -11,13 +13,10 @@ type Handler struct {
 
 var handler *Handler
 
-// Connection URI
-const uri = "127.0.0.1:27017"
-
 // 初始化
 
 func Init() {
-	session, err := mgo.Dial(uri)
+	session, err := mgo.Dial(conf.Env.DBAddr)
 	if err != nil {
 		panic(err)
 	}

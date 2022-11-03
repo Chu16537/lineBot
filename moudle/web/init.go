@@ -1,6 +1,8 @@
 package web
 
 import (
+	"linebot/conf"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -9,8 +11,6 @@ type Handler struct {
 }
 
 var handler *Handler
-
-var addr = ":8888"
 
 // 初始化
 
@@ -33,7 +33,7 @@ func Run() {
 	if handler.engine == nil {
 		Init()
 	}
-	handler.engine.Run(addr)
+	handler.engine.Run(conf.Env.Port)
 }
 
 func (h *Handler) pageInit() {
