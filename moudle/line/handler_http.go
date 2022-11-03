@@ -21,7 +21,6 @@ func (h *Handler) postLineBot(c *gin.Context) {
 		return
 	}
 	for _, event := range events {
-
 		switch event.Type {
 		case linebot.EventTypeMessage:
 			switch message := event.Message.(type) {

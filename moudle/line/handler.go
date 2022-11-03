@@ -2,10 +2,10 @@ package line
 
 import (
 	"fmt"
+	"linebot/dao"
 	"strconv"
 	"strings"
 	"time"
-	"linebot/dao"
 )
 
 // 文字分析
@@ -63,7 +63,12 @@ func getAction(text string) string {
 
 func getQueryTime(text string) int64 {
 	d := strings.Split(text, ACT_QUERY)[1]
-	day, _ := strconv.Atoi(d)
+	day, err := strconv.Atoi(d)
+
+	if err != nil {
+		return 0
+	}
+
 	if day < 0 {
 		day = 0
 	}
